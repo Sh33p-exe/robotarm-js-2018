@@ -8,24 +8,24 @@
             var robotArm = new RobotArm(canvas);
             
             // Het level inladen
-            robotArm.loadLevel("exercise 7");
+            robotArm.loadLevel("exercise 10");
             robotArm.speed = 1000
 
             // Jou instructies volgen hier
-            function a(){ for (var i = 0; i < 2; i++)
-            robotArm.moveRight();
+            var Block_Distance = 8;
+
+            for(a=0; a<=4; a++){
+                    robotArm.grab();
+                for(i=0; i<=Block_Distance; i++){
+                    robotArm.moveRight();   
+                }
+                    Block_Distance = Block_Distance -1;
+                    robotArm.drop();
+                for(p=0; p<=Block_Distance; p++){
+                    robotArm.moveLeft();
+                }
+                    Block_Distance = Block_Distance -1;
             }
-            function b(){ for (var i = 0; i < 10; i++)
-            robotArm.moveLeft();
-        }
-            function c() {for (var i = 0; i < 5; i++)
-            robotArm.moveRight();
-            robotArm.grab();
-            robotArm.moveLeft();
-            robotArm.drop();
-            a();
-        }
-            b();
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         
